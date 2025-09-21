@@ -25,7 +25,7 @@ if (form) {
       msgBox.style.color = "#ffcc00";
       return;
     }
-    const emailRE = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    const emailRE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRE.test(email)) {
       msgBox.textContent = "Please enter a valid email.";
       msgBox.style.color = "#ffcc00";

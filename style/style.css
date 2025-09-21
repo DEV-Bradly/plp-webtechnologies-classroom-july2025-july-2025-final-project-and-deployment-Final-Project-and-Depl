@@ -8,7 +8,7 @@ a { text-decoration: none; color: inherit; }
 .navbar .logo { font-size: 1.5rem; font-weight: bold; color: #7cf03d; }
 .navbar ul { display: flex; list-style: none; }
 .navbar ul li { margin-left: 1.5rem; }
-.navbar ul li a { color: #fff; transition: 0.3s; }
+.navbar ul li a { color: goldenrod; transition: 0.3s; }
 .navbar ul li a:hover, .navbar ul li.active a { color: #7cf03d; }
 .menu-toggle { display: none; cursor: pointer; font-size: 1.8rem; }
 
@@ -25,18 +25,18 @@ a { text-decoration: none; color: inherit; }
 
 /* Sections */
 section { padding: 2rem; }
-.skills, .about, .projects, .contact { background: #fff; margin: 2rem; border-radius: 8px; padding: 2rem; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+.skills, .about, .projects, .contact { background-color: skyblue; margin: 2rem; border-radius: 8px; padding: 2rem; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
 .skills h2, .about h1, .projects h1, .contact h1 { margin-bottom: 1rem; color: #222; }
 .skill { margin: 0.5rem 0; }
 
 /* Contact Form */
 form { display: flex; flex-direction: column; }
-form input, form textarea { margin-bottom: 1rem; padding: 0.7rem; border: 1px solid #ccc; border-radius: 5px; }
+form input, form textarea { margin-bottom: 1rem; padding: 0.7rem; border: 1px solid goldenrod; border-radius: 5px; }
 form .btn { border: none; cursor: pointer; }
 #form-msg { margin-top: 0.5rem; }
 
 /* Footer */
-footer { text-align: center; padding: 1rem; background: #222; color: #fff; }
+footer { text-align: center; padding: 1rem; background: #222; color: goldenrod; }
 
 /* Responsive */
 @media(max-width: 768px) {
@@ -57,7 +57,7 @@ footer { text-align: center; padding: 1rem; background: #222; color: #fff; }
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #fff;
+  color: chocolate;
   background: #0a0a0a;
 }
 
@@ -102,7 +102,7 @@ body {
   display: none;
   cursor: pointer;
   font-size: 2rem;
-  color: #fff;
+  color: goldenrod;
 }
 
 /* Hero */
@@ -110,52 +110,56 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 40px;
+  padding: 50px;
   flex-wrap: wrap;
 }
 
 .hero-content {
-  flex: 1;
-  padding-right: 20px;
+  max-width: 50%;
 }
 
-.hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+/* Profile Image Styling */
+.hero-image {
+  position: absolute;   /* keeps it floating on top */
+  top: 40px;
+  right: 40px;
 }
 
-.hero-content span {
-  color: #7cf03d;
+.hero-image img.profile-pic {
+  width: 250px;         /* bigger size */
+  height: 250px;
+  object-fit: cover;    
+  border-radius: 50%;   
+  border: 6px solid #333; 
+  animation: spin 12s linear infinite; /* slower rotation */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4); 
 }
 
-.hero-content h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #ccc;
+
+/* Spin Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.hero-content p {
-  margin-bottom: 20px;
+
+.profile-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;       /* makes it a circle */
+  border: 5px solid #333;   /* optional border */
+  object-fit: cover;        /* crop nicely */
+  animation: rotatePic 10s linear infinite; /* rotation effect */
 }
 
-.hero .btn {
-  background: #7cf03d;
-  color: #111;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.hero .btn:hover {
-  background: #5ec62d;
-}
-
-.hero-image img {
-  width: 280px;
-  border-radius: 50%;
-  border: 4px solid #7cf03d;
+/* Rotation Animation */
+@keyframes rotatePic {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Skills */
@@ -226,4 +230,46 @@ footer {
   .hero-image img {
     margin-top: 20px;
   }
+}
+
+
+/* Reusable button style */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  margin: 10px 5px;
+  background: linear-gradient(135deg,chocolate, #2ecc71);
+  color: rgb(187, 10, 10);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(124, 240, 61, 0.3);
+}
+
+/* Make buttons in the form sit side by side */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact form .btn {
+  width: auto;
+  min-width: 150px;
+  text-align: center;
+}
+
+/* Buttons container */
+.contact form .btn-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
 }
